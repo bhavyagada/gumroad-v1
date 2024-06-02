@@ -25,11 +25,11 @@
 			<form action="/" method="post" class="m-0">
 				<p class="overflow-hidden clear-both mx-5 my-2.5">
 					<label for="email" class="font-bold text-[#777] text-right float-left w-[118px] pt-2.5">Email address:</label>
-					<input name="email" type="text" placeholder="email address" class="w-72 float-right text-sm p-2 border border-slate-500 border-solid focus:outline-none">
+					<input name="email" type="text" placeholder="email address" class="w-72 float-right text-black text-sm p-2 border border-slate-500 border-solid focus:outline-none">
 				</p>
 				<p class="overflow-hidden clear-both mx-5 my-2.5">
 					<label for="password" class="font-bold text-[#777] text-right float-left w-[118px] pt-2.5">Password:</label>
-					<input name="password" type="password" placeholder="password" class="w-72 float-right text-sm p-2 border border-slate-500 border-solid focus:outline-none">
+					<input name="password" type="password" placeholder="password" class="w-72 float-right text-black text-sm p-2 border border-slate-500 border-solid focus:outline-none">
 				</p>
 				<p class="m-0">
           <button type="submit" class="font-bold text-lg w-full text-[#0e7bba] mt-2.5 m-0 p-5 rounded-br-[15px] rounded-bl-[15px] border-t-2 border-t-[#eee] border-0 border-dashed hover:underline hover:text-[#0a547f] hover:cursor-pointer hover:bg-[#f2f2f2]">Start Making Money</button>
