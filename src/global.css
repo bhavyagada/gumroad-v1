@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { border: 0; margin: 0; padding: 0; outline: 0; }
+
+html { height: 100%; }
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #777;
+	font-size: 16px;
+	background: #fff;
+}
+
+p { line-height: 150%; }
+ul { list-style: none; }
+.hidden { display: none !important; }
+
+strong { color: #000; }
+a { color: #0e7bba; text-decoration: none; }
+a:hover { text-decoration: underline; }
