@@ -1,6 +1,6 @@
 <div>
 	<div class="clear-both w-3/5 min-w-[800px] max-w-[960px] overflow-hidden mx-auto my-0 px-0 py-8">
-		<div id="main-page-form" class="bg-[#f9f9f9] w-[458px] border border-2 border-dashed border-[#eee] rounded-xl float-none mx-auto my-0">
+		<div class="bg-[#f9f9f9] w-[458px] border border-2 border-dashed border-[#eee] rounded-xl float-none mx-auto my-0">
 			<h2 class="font-sans text-[22px] text-[#333] font-semibold text-center mx-5 mt-5 mb-4">Login to your account:</h2>
 			<form action="/login" method="post" class="m-0">
 				<p class="clear-both overflow-hidden my-2.5 mx-5">
