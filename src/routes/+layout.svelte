@@ -10,7 +10,12 @@
 
 <svelte:head>
   <title>{$page.data.title || "Gumroad - Selling should be as easy as sharing a link."}</title>
-  <meta name="description" content={$page.data.content}>
+  <meta property="og:site_name" content="Gumroad" />
+  <meta property="og:title" content="Gumroad" />
+  <meta property="og:url" content="http://gumroad.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="Selling should be as easy as sharing a link." />
+  <meta property="fb:page_id" content="http://www.facebook.com/gumroad" />
 </svelte:head>
 
 <body id={$page.data.body_id}>
@@ -26,9 +31,9 @@
     <!-- <div id="loading-indicator">Loading...</div> -->
 
     <div>
-      {#if !$page.data.hide_header}
+      {#if $page.data.hide_header === undefined}
         <div class="min-w-[800px] max-w-[960px] w-3/5 overflow-hidden mx-auto my-0 pb-2 border-b border-b-black border-dashed">
-          {#if $page.data.show_login_link}
+          {#if $page.data.show_login_link === undefined}
             <ul class="list-none float-right mt-10">
               <li class="font-normal text-xl float-left ml-5">Have an account? <a href="/login" class="text-[#0e7bba] no-underline hover:underline inline-block ml-0.5 pt-2.5 pb-[13px] px-3.5 border-t-[solid] border-t">Login!</a></li>
             </ul>
