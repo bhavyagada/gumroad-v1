@@ -1,4 +1,6 @@
 <script>
+  import { goto } from "$app/navigation";
+
   // TODO: extract everything later into specific states
   let show_error = false;
   let error_message = "";
@@ -16,7 +18,7 @@
 <div class="clear-both w-3/5 min-w-[800px] max-w-[960px] overflow-hidden mx-auto my-0 px-0 py-8">
   <div class="flex justify-between">
     <div class="bg-[#f9f9f9] w-[258px] h-[129px] border border-2 border-dashed border-[#eee] rounded-xl mr-5">
-      <button class="bg-[#f2f2f2] w-full font-bold text-lg text-[#0e7bba] p-4 rounded-tl-[15px] rounded-tr-[15px] border-t-2 border-t-[#eee] border-0 border-dashed hover:underline hover:text-[#0a547f] hover:cursor-pointer">+ Add new link</button>
+      <button on:click={() => goto("/add")} class="bg-[#f2f2f2] w-full font-bold text-lg text-[#0e7bba] p-4 rounded-tl-[15px] rounded-tr-[15px] border-t-2 border-t-[#eee] border-0 border-dashed hover:underline hover:text-[#0a547f] hover:cursor-pointer">+ Add new link</button>
       <p class="clear-both overflow-hidden text-center my-4">You don't have any links.</p>
     </div>
     <div class="bg-[#f9f9f9] w-[680px] pl-5 pt-5 pb-2.5 px-0 rounded-[15px]">
