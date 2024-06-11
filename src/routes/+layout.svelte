@@ -1,11 +1,20 @@
 <script>
   import "../global.css";
+  import { goto } from "$app/navigation";
   import { page } from "$app/stores";
+  import { is_logged_in, user_store } from "$lib";
 
-  // TODO: extract everything later into specific states
-  let logged_in;
-  let user_balance;
-  let on_links_page;
+  console.log($is_logged_in);
+  const logout = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch('/logout', { method: 'GET' });
+    if (response.status === 200) {
+      $is_logged_in = false;
+      $user_store = { email: "", payment_address: "", name: "", reset_hash: "", balance: 0.00 };
+      goto("/");
+    }
+  }
 </script>
 
 <svelte:head>
@@ -33,19 +42,19 @@
     <div>
       {#if $page.data.hide_header === undefined}
         <div class="min-w-[800px] max-w-[960px] w-3/5 overflow-hidden mx-auto my-0 pb-2 border-b border-b-black border-dashed">
-          {#if $page.data.show_login_link === undefined}
+          {#if !$is_logged_in}
             <ul class="list-none float-right mt-10">
               <li class="font-normal text-xl float-left ml-5">Have an account? <a href="/login" class="text-[#0e7bba] no-underline hover:underline inline-block ml-0.5 pt-2.5 pb-[13px] px-3.5 border-t-[solid] border-t">Login!</a></li>
             </ul>
           {:else}
-            {#if logged_in}
-              <p id="account-navigation">
-              {#if !on_links_page}
-                <a href="/links">Your links</a>
+            {#if $is_logged_in}
+              <p class="text-lg float-right text-[#999] ml-2.5 mr-0 mt-12 mb-0">
+              {#if $page.url.pathname !== "/links"}
+                <a href="/links" class="mx-2.5 my-0">Your links</a>
               {:else}
-                <a href="/home">Home</a>
+                <a href="/home" class="mx-2.5 my-0">Home</a>
               {/if}
-              &bull; <span class="balance">${user_balance}</span> &bull; <a href="/settings">Settings</a> &bull; <a href="/logout">Logout</a>
+              &bull; <span class="text-[#6c6b65] mx-2.5 my-0">${$user_store.balance === 0 ? "0.00" : $user_store.balance}</span> &bull; <a href="/settings" class="mx-2.5 my-0">Settings</a> &bull; <a href="/logout" on:click={logout} class="ml-2.5 my-0 mr-0">Logout</a>
               </p>
             {:else}
               <p>Thanks for using Gumroad <a href="mailto:hi@gumroad.com">Feedback?</a></p>
