@@ -24,8 +24,5 @@
     "vite": "^5.2.13",
     "wrangler": "^3.60.1"
   },
-  "type": "module",
-  "dependencies": {
-    "bcrypt": "^5.1.1"
-  }
+  "type": "module"
 }
