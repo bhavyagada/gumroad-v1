@@ -59,6 +59,5 @@
         </p>
 			</form>
 		</div>
-		<p class="text-[#797874] text-base leading-6 text-center mx-0 my-8"><a href="/forgot-password">Forgot your password?</a> We all do.</p>
 	</div>
 </div>
