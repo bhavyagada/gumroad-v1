@@ -4,7 +4,6 @@
   import { page } from "$app/stores";
   import { is_logged_in, user_store } from "$lib";
 
-  console.log($is_logged_in);
   const logout = async (event) => {
     event.preventDefault();
 
@@ -37,8 +36,6 @@
       <div class="bg-[#eb6841] w-1/5 h-[100px] block float-left"></div>
       <div class="bg-[#edc951] w-1/5 h-[100px] block float-left"></div>
     </div>
-    <!-- <div id="loading-indicator">Loading...</div> -->
-
     <div>
       {#if $page.data.hide_header === undefined}
         <div class="min-w-[800px] max-w-[960px] w-3/5 overflow-hidden mx-auto my-0 pb-2 border-b border-b-black border-dashed">
@@ -49,12 +46,7 @@
           {:else}
             {#if $is_logged_in}
               <p class="text-lg float-right text-[#999] ml-2.5 mr-0 mt-12 mb-0">
-              {#if $page.url.pathname !== "/links"}
-                <a href="/links" class="mx-2.5 my-0">Your links</a>
-              {:else}
-                <a href="/home" class="mx-2.5 my-0">Home</a>
-              {/if}
-              &bull; <span class="text-[#6c6b65] mx-2.5 my-0">${$user_store.balance === 0 ? "0.00" : $user_store.balance}</span> &bull; <a href="/settings" class="mx-2.5 my-0">Settings</a> &bull; <a href="/logout" on:click={logout} class="ml-2.5 my-0 mr-0">Logout</a>
+              <a href="/settings" class="mx-2.5 my-0">Account</a> &bull; <span class="text-[#6c6b65] mx-2.5 my-0">${$user_store.balance === 0 ? "0.00" : $user_store.balance}</span> &bull; <a href="/logout" on:click={logout} class="ml-2.5 my-0 mr-0">Logout</a>
               </p>
             {:else}
               <p>Thanks for using Gumroad <a href="mailto:hi@gumroad.com">Feedback?</a></p>
@@ -68,6 +60,7 @@
       {/if}
     </div>
 
+    <!-- page contents -->
     <slot></slot>
 
     <!-- footer -->

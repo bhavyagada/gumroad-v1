@@ -24,7 +24,7 @@ export async function POST({ request, platform, cookies }) {
     const auth_token = randomUUID();
     await platform.env.DB.prepare("INSERT INTO user (email, salt, password, auth_token, reset_hash) VALUES (?, ?, ?, ?, ?)").bind(...[email, salt, password_hash, auth_token, permalink]).run();
     cookies.set("user", email, { path: '/', httpOnly: true, sameSite: 'strict', maxAge: 60 * 60 * 24 * 30 });
-    return new Response(null, { status: 200 });
+    return new Response(JSON.stringify({ email: email, reset_hash: permalink, balance: 0.00 }), { status: 200 });
   }
 
   const user = user_from_db.results[0];

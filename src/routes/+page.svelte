@@ -27,12 +27,10 @@
       $is_logged_in = true;
       $user_store = {
         email: data.email,
-        payment_address: data.payment_address,
-        name: data.name,
         reset_hash: data.reset_hash,
         balance: data.balance
       }
-      goto("/links");
+      goto("/home");
       return;
     }
   }
